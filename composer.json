@@ -1,0 +1,30 @@
+{
+    "name": "verdient/one-bound",
+    "description": "one-bound",
+    "type": "library",
+    "keywords": [
+        "One Bound"
+    ],
+    "homepage": "https://github.com/Verdient/one-bound",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Verdient.",
+            "email": "fagui.zhu@foxmail.com",
+            "homepage": "https://github.com/Verdient"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Verdient/one-bound/issues",
+        "source": "https://github.com/Verdient/one-bound"
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "verdient/http-api": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Verdient\\OneBound\\": "src"
+        }
+    }
+}
