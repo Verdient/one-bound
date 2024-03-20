@@ -13,16 +13,28 @@ use Verdient\HttpAPI\AbstractClient;
 class OneBound extends AbstractClient
 {
     /**
-     * @var string 秘钥标识
+     * 秘钥标识
      * @author Verdient。
      */
     protected $accessKey;
 
     /**
-     * @var string 秘钥
+     * 秘钥
      * @author Verdient。
      */
-    protected $accessSecret;
+    protected string $accessSecret;
+
+    /**
+     * 代理主机
+     * @author Verdient。
+     */
+    protected string|null $proxyHost = null;
+
+    /**
+     * 代理端口
+     * @author Verdient。
+     */
+    protected int|string|null $proxyPort = null;
 
     /**
      * @inheritdoc
@@ -42,6 +54,9 @@ class OneBound extends AbstractClient
         $request = parent::request($path);
         $request->accessKey = $this->accessKey;
         $request->accessSecret = $this->accessSecret;
+        if ($this->proxyHost) {
+            $request->setProxy($this->proxyHost, empty($this->proxyPort) ? null : intval($this->proxyPort));
+        }
         return $request;
     }
 }
